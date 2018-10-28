@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "web",
+    "html",
+    "javascript"
+  ],
+  "author": "So JaeHwan",
+  "license": "ISC",
+  "dependencies": {
+    "@glidejs/glide": "^3.2.3"
+  }
+}
