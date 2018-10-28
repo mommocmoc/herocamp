@@ -12,14 +12,15 @@
     <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
     <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
   </head>
-  <body>
+  <body class="w3-metro-darken">
 
-    <div class="glide">
+    <div class="glide w3-container" align="center">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
       <li class="glide__slide w3-xxxlarge">0</li>
       <li class="glide__slide w3-xxxlarge">1</li>
       <li class="glide__slide w3-xxxlarge">2</li>
+      <img src="images/ncmn.jpeg" alt="ncmn로고">
     </ul>
       </div>
 
@@ -27,13 +28,18 @@
         <button class="glide__bullet" data-glide-dir="=0"></button>
         <button class="glide__bullet" data-glide-dir="=1"></button>
         <button class="glide__bullet" data-glide-dir="=2"></button>
+        <button class="glide__bullet" data-glide-dir="=3"></button>
       </div>
     </div>
 <script>
   var i;
-  var glide = new Glide('.glide',{
-    autoplay:2000
-  });
+  var glideOptions={
+    autoplay:2000,
+    focusAt:'center',
+    animationDuration:1000,
+    animationTimingFunc:'ease-in'
+  }
+  var glide = new Glide('.glide',glideOptions);
   glide.mount();
   glide.on('run.after',returnIndex);
 
@@ -42,9 +48,9 @@
     i = glide.index
     console.log("Hero!")
     console.log(i)
-    if(i ==2){
+    if(i == 3){
 
-      glide.pause();
+      glide.pause()
 
     }
   }
