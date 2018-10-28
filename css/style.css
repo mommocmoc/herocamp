@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* CSS Document */
+.js div#preloader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #ee9e55;
+  border-right: 16px solid #e35f67;
+  border-bottom: 16px solid #466176;
+  border-left: 16px solid #c76d89;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+body {
+      animation: colorchange 3000ms;
+      -webkit-animation: colorchange 3000ms;
+      animation-fill-mode : both;
+    }
+
+    @keyframes colorchange
+    {
+      from   {background: white;}
+      to  {background: black;}
+      }
+
+    @-webkit-keyframes colorchange
+    {
+      from   {background: white;}
+      to  {background: black;}
+      }
+
+div {
+	color: white;
+
+}
+
+#glide__slide{
+	background-color: white;
+}
