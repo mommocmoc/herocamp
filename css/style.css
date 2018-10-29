@@ -58,6 +58,6 @@ div {
 }
 
 video {
-    max-width: 100%;
+    max-width: device-width;
     height: auto;
 }
