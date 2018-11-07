@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 
@@ -37,15 +38,14 @@
     </div> -->
 
     <div class="js">
-<div id="preloader"></div>
-</div>
+
     <div id="firstDiv" class="w3-display-containe w3-center w3-display-middle w3-large">
       <div class="mySlides w3-animate-opacity"></div>
       <div class="mySlides w3-animate-opacity">주의 권능의 날에</div>
       <div class="mySlides w3-animate-opacity">주의 백성이 거룩한 옷을 입고</div>
-      <div class="mySlides w3-animate-opacity">새벽 이슬 같은</div>
-      <div class="mySlides w3-animate-opacity">주의 청년들이</div>
-      <div class="mySlides w3-animate-opacity">주께 나오는도다</div>
+      <div class="mySlides w3-animate-opacity w3-padding">새벽 이슬 같은</div>
+      <div class="mySlides w3-animate-opacity w3-padding">주의 청년들이</div>
+      <div class="mySlides w3-animate-opacity w3-padding">주께 나오는도다</div>
       <div class="mySlides w3-animate-opacity">시편 110:3</div>
     </div>
     <div class="video-container">
@@ -55,10 +55,11 @@
     </div>
     <div id="firstDiv" class="w3-display-containe w3-center w3-display-middle w3-large">
       <img class="myVideo w3-image w3-animate-opacity" src="images/calling.jpeg" alt="2019 Hero Camp로 주님의 Hero를 초청합니다.">
-      <h1 class="myVideo w3-padding w3-animate-bottom w3-large">11월 26일 낮 12시</h1>
-      <h1 class="myVideo w3-padding w3-animate-bottom w3-large">Hero Camp 5기 학생을 모집합니다.</h1>
+      <h1 class="myVideo w3-padding w3-animate-opacity w3-large">11월 26일 낮 12시</h1>
+      <h1 class="myVideo w3-padding w3-animate-opacity w3-large">위대한 사명에 동참할</h1>
+      <h1 class="myVideo w3-padding w3-animate-opacity w3-large">Hero Camp 5기 학생을 모집합니다.</h1>
     </div>
- 
+
 <script>
   // var i;
   // var glideOptions={
@@ -85,7 +86,7 @@
 
   var myVar;
   var slideIndex = 0;
-  var timer=3000;
+  var timer=2500;
   var i;
   var x = document.getElementsByClassName("mySlides");
   var y = document.getElementsByClassName("myVideo");
@@ -112,7 +113,7 @@ getCurTime();
       heroImage.style.display = "block"
       if(currentVideoTime > 72){
         volumeFadeOut();
-        if(currentVideoTime >85){
+        if(currentVideoTime >75){
           finalCalling();
         }
       }
@@ -122,18 +123,22 @@ getCurTime();
 
 function finalCalling(){
   y[2].style.display ="block";
-  y[3].style.display ="block"
+  y[3].style.display ="block";
+  y[4].style.display ="block";
 
 }
 
 function volumeFadeOut(){
   var fadeOutSpeed = 0.005;
-  videoVolume = heroVideo.volume;
-  videoVolume -=fadeOutSpeed;
-  heroVideo.volume = videoVolume.toFixed(3);
-  if (heroVideo.volume <= 0.01) {
+
+  if (heroVideo.volume === 0.0) {
     heroVideo.volume = 0
+    clearInterval(volumeFadeOut);
     return
+  }else{
+    videoVolume = heroVideo.volume;
+    videoVolume -=fadeOutSpeed;
+    heroVideo.volume = videoVolume.toFixed(3);
   }
   //console.log(heroVideo.volume);
   setTimeout(volumeFadeOut,500);
@@ -144,20 +149,25 @@ function volumeFadeOut(){
 
       //var x = document.getElementsByClassName("mySlides");
       for (i = 0; i < x.length; i++) {
+        if(slideIndex<4){
         x[i].style.display = "none";
       }
+    }
       for (var i = 0; i < y.length; i++) {
         y[i].style.display ="none"
       }
       slideIndex++;
-      timer = timer - 300;
+      timer = timer - 225;
       if(slideIndex == 6){timer = 3000;}
-      if (slideIndex > x.length) {
+
+      if (slideIndex > x.length) { //Video Play
         sliderDone = true;
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
         //console.log(sliderDone);
         y[0].style.display ="block";
         y[0].play();
-
         return}
       x[slideIndex-1].style.display = "block";
       setTimeout(carousel, timer); // Change image every 2 seconds
