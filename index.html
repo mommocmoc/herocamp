@@ -14,10 +14,10 @@
     <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
     <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
+    <script src="libraries/jquery.countdown.min.js"></script>
 
   </head>
-  <body onload="myFunction()">
+  <body>
 
     <!-- <div class="glide w3-container" align="center">
       <div class="glide__track" data-glide-el="track">
@@ -39,7 +39,7 @@
 
     <div class="js">
 
-    <div id="firstDiv" class="w3-display-containe w3-center w3-display-middle w3-large">
+    <div id="firstDiv" class="w3-display-middle w3-center w3-large" style="width:100%;">
       <div class="mySlides w3-animate-opacity"></div>
       <div class="mySlides w3-animate-opacity">주의 권능의 날에</div>
       <div class="mySlides w3-animate-opacity">주의 백성이 거룩한 옷을 입고</div>
@@ -53,37 +53,31 @@
       </video>
       <!-- <button onclick="getCurTime()" type="button">Get current time position</button> -->
     </div>
-    <div id="firstDiv" class="w3-display-containe w3-center w3-display-middle w3-large">
+    <div id="firstDiv" class="w3-display-middle w3-center w3-large" style="width:100%;">
       <img class="myVideo w3-image w3-animate-opacity" src="images/calling.jpeg" alt="2019 Hero Camp로 주님의 Hero를 초청합니다.">
       <h1 class="myVideo w3-padding w3-animate-opacity w3-large">11월 26일 낮 12시</h1>
       <h1 class="myVideo w3-padding w3-animate-opacity w3-large">위대한 사명에 동참할</h1>
       <h1 class="myVideo w3-padding w3-animate-opacity w3-large">Hero Camp 5기 학생을 모집합니다.</h1>
+      <div class="myVideo" id="clock"></div>
     </div>
 
-<script>
-  // var i;
-  // var glideOptions={
-  //   autoplay:2000,
-  //   focusAt:'center',
-  //   animationDuration:1000,
-  //   animationTimingFunc:'ease-in'
-  // }
-  // var glide = new Glide('.glide',glideOptions);
-  // glide.mount();
-  // glide.on('run.after',returnIndex);
-  //
-  //
-  // function returnIndex() {
-  //   i = glide.index
-  //   console.log("Hero!")
-  //   console.log(i)
-  //   if(i == 3){
-  //
-  //     glide.pause()
-  //
-  //   }
-  // }
 
+<script>
+//countdown
+$('#clock').countdown('2018/11/26 12:00:00', function(event) {
+    var $this = $(this).html(event.strftime('<div class="w3-padding w3-medium">'
+      + '세상울 바꿀 Hero 모집일까지 %-D일 '
+      + '%H시간 '
+      + '%M분 '
+      + '%S초 남았습니다.'
+      +'<div class="w3-padding">'
+      + '기도로 함께 준비해주세요.'
+      + '</div>'
+      + '</div>'
+    ));
+  });
+
+//slider
   var myVar;
   var slideIndex = 0;
   var timer=2500;
@@ -104,6 +98,7 @@ if(sliderDone)
 }
 getCurTime();
 
+//function define
   function getCurTime() {
     currentVideoTime = heroVideo.currentTime;
     //console.log(currentVideoTime);
@@ -125,6 +120,7 @@ function finalCalling(){
   y[2].style.display ="block";
   y[3].style.display ="block";
   y[4].style.display ="block";
+  y[5].style.display ="block";
 
 }
 
