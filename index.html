@@ -97,11 +97,8 @@ getCurTime();
     if (currentVideoTime > 62) {
       heroVideo.style.display = "none";
       heroImage.style.display = "block"
-      if(currentVideoTime > 72){
-        //volumeFadeOut();
-        if(currentVideoTime >75){
-          finalCalling();
-        }
+      if(currentVideoTime > 65){
+        finalCalling();
       }
     }
     setTimeout(getCurTime,1000);
